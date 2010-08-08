@@ -16,10 +16,9 @@ $header = file_get_contents('gm_head.js');
 $main   = file_get_contents('toolbox.js');
 $langs  = 'var toolbox_lang = '.$json->encode($lang['js']).";\n";
 
-$fh = fopen('gm_toolbox.js','w');
+$fh = fopen('gm_toolbox.user.js','w');
 fwrite($fh,$header);
 fwrite($fh,$langs);
 fwrite($fh,$main);
 fclose($fh);
 
-//system('cp gm_toolbox.js /home/andi/.mozilla/firefox/l2pmnd3t.default/gm_scripts/dokuwiki_toolbox/dokuwiki_toolbox.user.js');

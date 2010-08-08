@@ -1,7 +1,8 @@
-
-if(window.toolbar!=undefined){
+// Add our toolbar picker
+if(typeof toolbar == 'object' && typeof toolbox_initialized == 'undefined'){
     toolbar[toolbar.length] = {
         "type":  "picker",
+        "id": "toolboxpicker",
         "title": "Toolbox",
         "icon":  toolbox_icon+"wrench_orange.png",
         "key":   "",
@@ -42,6 +43,9 @@ if(window.toolbar!=undefined){
             }
         ]
     };
+
+    // avoid two pickers when plugin and greasemonkey is installed
+    toolbox_initialized = 'yes';
 }
 
 /**
@@ -155,6 +159,6 @@ window.tb_toolbox_counter = function(btn, opts, edid){
 
     pickerClose();
     alert(out);
-}
+};
 
 
