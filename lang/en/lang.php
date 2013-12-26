@@ -12,4 +12,3 @@ $lang['js']['chars']     = '%d chars';
 $lang['js']['total']     = 'Total:';
 $lang['js']['section']   = 'Section:';
 $lang['js']['selection'] = 'Selection:';
-
