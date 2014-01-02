@@ -12,4 +12,3 @@ $lang['js']['chars']     = '%d Buchstaben';
 $lang['js']['total']     = 'Gesamt:';
 $lang['js']['section']   = 'Abschnitt:';
 $lang['js']['selection'] = 'Auswahl:';
-
