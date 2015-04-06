@@ -52,7 +52,8 @@ if(typeof toolbar == 'object' && typeof toolbox_initialized == 'undefined'){
  * Sort the selected text
  */
 window.tb_toolbox_sort = function(btn, opts, edid){
-    var selection = getSelection($(edid));
+    var field = jQuery('#' + edid)[0];
+    var selection = DWgetSelection(field);
     if(!selection.getLength()){
         alert(toolbox_lang.notext);
         return;
@@ -72,7 +73,8 @@ window.tb_toolbox_sort = function(btn, opts, edid){
  * Indent the selected text
  */
 window.tb_toolbox_indent = function(btn, opts, edid){
-    var selection = getSelection($(edid));
+	var field = jQuery('#' + edid)[0];
+    var selection = DWgetSelection(field);
     if(!selection.getLength()){
         alert(toolbox_lang.notext);
         return;
@@ -119,7 +121,7 @@ window.tb_toolbox_counter = function(btn, opts, edid){
     }
 
 
-    var obj  = $(edid);
+    var obj  = jQuery('#' + edid)[0];
     var call = 0;
     var wall = 0;
     var csec = charcounter(obj.value);
@@ -148,7 +150,7 @@ window.tb_toolbox_counter = function(btn, opts, edid){
     out += "  "+toolbox_lang.chars.replace('%d',csec);
     out += "  "+toolbox_lang.words.replace('%d',wsec)+"\n";
 
-    var selection = getSelection($(edid));
+    var selection = DWgetSelection(obj);
     if(selection.getLength()){
         var text = selection.getText();
 
