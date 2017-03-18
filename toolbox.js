@@ -2,7 +2,7 @@
 if (typeof toolbar == 'object' && typeof toolbox_initialized == 'undefined') {
     toolbar[toolbar.length] = {
         "type": "picker",
-        "id": "toolboxpicker",
+        "id": "toolbox__picker",
         "title": "Toolbox",
         "icon": toolbox_icon + "wrench_orange.png",
         "key": "",
