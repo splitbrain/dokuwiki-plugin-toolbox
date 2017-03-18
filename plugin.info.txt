@@ -1,7 +1,7 @@
 base   toolbox
 author Andreas Gohr
 email  andi@splitbrain.org
-date   2010-08-08
+date   2017-03-18
 name   A Toolbox for the Toolbar
 desc   Adds various tools to the editor toolbar
 url    http://www.dokuwiki.org/plugin:toolbox
