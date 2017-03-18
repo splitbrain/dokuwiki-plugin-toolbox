@@ -3,7 +3,7 @@ $lang['js']['sortasc']   = 'Sort Ascending';
 $lang['js']['sortdesc']  = 'Sort Descending';
 $lang['js']['indent']    = 'Add Indention';
 $lang['js']['outdent']   = 'Remove Indention';
-$lang['js']['counter']   = 'Count Words';
+$lang['js']['counter']   = 'Word and Character Counts';
 $lang['js']['f_r']       = 'Find and Replace';
 
 $lang['js']['notext']    = 'No text selected';

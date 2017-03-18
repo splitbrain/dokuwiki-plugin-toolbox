@@ -58,8 +58,8 @@ if (typeof toolbar == 'object' && typeof toolbox_initialized == 'undefined') {
  * The Find and Replace dialog
  */
 window.tb_toolbox_find = function (btn, opts, edid) {
-    ToolboxFindAndReplace(edid);
     pickerClose();
+    ToolboxFindAndReplace(edid);
 };
 
 /**
@@ -115,66 +115,8 @@ window.tb_toolbox_indent = function (btn, opts, edid) {
  * @link http://www.dokuwiki.org/tips:wordcounter
  */
 window.tb_toolbox_counter = function (btn, opts, edid) {
-
-    function charcounter(text) {
-        var list = text.split(/[^\w\-_]+/);
-        var len = text.length;
-        if (list[len - 1] == '') len--;
-        if (list[0] == '') len--;
-        if (len < 0) len = 0;
-        return len;
-    }
-
-    function wordcounter(text) {
-        var list = text.split(/[^\w\-_]+/);
-        var len = list.length;
-        if (list[len - 1] == '') len--;
-        if (list[0] == '') len--;
-        if (len < 0) len = 0;
-        return len;
-    }
-
-
-    var obj = jQuery('#' + edid)[0];
-    var call = 0;
-    var wall = 0;
-    var csec = charcounter(obj.value);
-    var wsec = wordcounter(obj.value);
-
-    if (obj.form.elements.prefix && obj.form.elements.prefix.value) {
-        call += charcounter(obj.form.elements.prefix.value);
-        wall += wordcounter(obj.form.elements.prefix.value);
-    }
-    if (obj.form.elements.suffix && obj.form.elements.suffix.value) {
-        call += charcounter(obj.form.elements.suffix.value);
-        wall += wordcounter(obj.form.elements.suffix.value);
-    }
-
-    var out = '';
-
-    if (call) {
-        out += toolbox_lang.total;
-        out += "  " + toolbox_lang.chars.replace('%d', (call + csec));
-        out += "  " + toolbox_lang.words.replace('%d', (wall + wsec)) + "\n";
-
-        out += toolbox_lang.section;
-    } else {
-        out += toolbox_lang.total;
-    }
-    out += "  " + toolbox_lang.chars.replace('%d', csec);
-    out += "  " + toolbox_lang.words.replace('%d', wsec) + "\n";
-
-    var selection = DWgetSelection(obj);
-    if (selection.getLength()) {
-        var text = selection.getText();
-
-        out += toolbox_lang.selection;
-        out += "  " + toolbox_lang.chars.replace('%d', charcounter(text));
-        out += "  " + toolbox_lang.words.replace('%d', wordcounter(text)) + "\n";
-    }
-
     pickerClose();
-    alert(out);
+    ToolboxCounter(edid);
 };
 
 
