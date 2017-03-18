@@ -2,6 +2,7 @@
  * Implements the Word and Char counter
  *
  * @param {string} edid
+ * @link http://www.dokuwiki.org/tips:wordcounter
  * @constructor
  */
 var ToolboxCounter = function (edid) {

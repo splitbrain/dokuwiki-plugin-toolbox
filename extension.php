@@ -12,6 +12,17 @@ require_once(DOKU_INC . 'inc/init.php');
     // open output
     $fh = fopen(__DIR__ . '/extension/script.js', 'w');
 
+    // add comment
+    fwrite($fh, "/**
+ * Injected content script, extending the DokuWiki toolbar
+ *
+ * This script is built automatically from the source files
+ * using the extension.php script. It should not be edited.
+ * See https://github.com/splitbrain/dokuwiki-plugin-toolbox
+ * for the original files and for contributing to the extension.
+ */
+");
+
     // load the language files
     unset($lang);
     /** @var array $lang */
@@ -22,7 +33,9 @@ require_once(DOKU_INC . 'inc/init.php');
     fwrite($fh, "var toolbox_icon = '//github.com/splitbrain/dokuwiki-plugin-toolbox/raw/master/pix/';\n");
 
     // add the scripts
-    foreach(array('ToolboxFindAndReplace.js', 'toolbox.js') as $script) {
+    $scripts = glob(__DIR__ . '/Toolbox*.js');
+    $scripts[] = __DIR__ . '/toolbox.js';
+    foreach($scripts as $script) {
         fwrite($fh, file_get_contents($script));
     }
 

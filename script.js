@@ -4,4 +4,5 @@ var toolbox_lang = LANG.plugins.toolbox;
 
 /* DOKUWIKI:include ToolboxFindAndReplace.js */
 /* DOKUWIKI:include ToolboxCounter.js */
+/* DOKUWIKI:include ToolboxTextTools.js */
 /* DOKUWIKI:include toolbox.js */

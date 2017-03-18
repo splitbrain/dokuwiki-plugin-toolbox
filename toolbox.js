@@ -1,4 +1,8 @@
-// Add our toolbar picker
+/**
+ * This adds our own picker into the toolbar definition
+ *
+ * For each button a custom type is defined
+ */
 if (typeof toolbar == 'object' && typeof toolbox_initialized == 'undefined') {
     toolbar[toolbar.length] = {
         "type": "picker",
@@ -52,71 +56,37 @@ if (typeof toolbar == 'object' && typeof toolbox_initialized == 'undefined') {
 
     // avoid two pickers when plugin and greasemonkey is installed
     toolbox_initialized = 'yes';
+
+    /**
+     * The Find and Replace dialog
+     */
+    window.tb_toolbox_find = function (btn, opts, edid) {
+        pickerClose();
+        ToolboxFindAndReplace(edid);
+    };
+
+    /**
+     * Sort the selected text
+     */
+    window.tb_toolbox_sort = function (btn, opts, edid) {
+        pickerClose();
+        ToolboxTextTools(edid).sort(opts['reverse']);
+    };
+
+    /**
+     * Indent the selected text
+     */
+    window.tb_toolbox_indent = function (btn, opts, edid) {
+        pickerClose();
+        ToolboxTextTools(edid).indent(opts['reverse']);
+    };
+
+    /**
+     * Count words and characters
+     *
+     */
+    window.tb_toolbox_counter = function (btn, opts, edid) {
+        pickerClose();
+        ToolboxCounter(edid);
+    };
 }
-
-/**
- * The Find and Replace dialog
- */
-window.tb_toolbox_find = function (btn, opts, edid) {
-    pickerClose();
-    ToolboxFindAndReplace(edid);
-};
-
-/**
- * Sort the selected text
- */
-window.tb_toolbox_sort = function (btn, opts, edid) {
-    var field = jQuery('#' + edid)[0];
-    var selection = DWgetSelection(field);
-    if (!selection.getLength()) {
-        alert(toolbox_lang.notext);
-        return;
-    }
-
-    var text = selection.getText();
-    text = text.split("\n");
-    text.sort();
-    if (opts['reverse']) text.reverse();
-    text = text.join("\n");
-
-    pasteText(selection, text, {});
-    pickerClose();
-};
-
-/**
- * Indent the selected text
- */
-window.tb_toolbox_indent = function (btn, opts, edid) {
-    var field = jQuery('#' + edid)[0];
-    var selection = DWgetSelection(field);
-    if (!selection.getLength()) {
-        alert(toolbox_lang.notext);
-        return;
-    }
-
-    var text = selection.getText();
-    text = text.split("\n");
-    for (var i = 0; i < text.length; i++) {
-        if (opts['reverse']) {
-            text[i] = text[i].replace(/^  ?/, '');
-        } else {
-            text[i] = '  ' + text[i];
-        }
-    }
-    text = text.join("\n");
-
-    pasteText(selection, text, {});
-    pickerClose();
-};
-
-/**
- * Count words and characters
- *
- * @link http://www.dokuwiki.org/tips:wordcounter
- */
-window.tb_toolbox_counter = function (btn, opts, edid) {
-    pickerClose();
-    ToolboxCounter(edid);
-};
-
-
