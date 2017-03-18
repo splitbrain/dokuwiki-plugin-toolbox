@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "DokuWiki Toolbox",
+    "version": "2010.08.08",
+    "browser_action": {},
+    "content_scripts": [
+        {
+            "matches": [
+                "https:\/\/*\/*?do=edit",
+                "http:\/\/*\/*?do=edit"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        "script.js"
+    ]
+}
