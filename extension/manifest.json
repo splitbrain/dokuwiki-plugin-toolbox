@@ -1,8 +1,11 @@
 {
     "manifest_version": 2,
     "name": "DokuWiki Toolbox",
+    "short_name": "DW Toolbox",
     "version": "2010.08.08",
-    "browser_action": {},
+    "description": "Load the DokuWiki Toolbox plugin on any DokuWiki installation on the web",
+    "author": "Andreas Gohr",
+    "homepage_url": "https:\/\/www.dokuwiki.org\/plugin:toolbox",
     "content_scripts": [
         {
             "matches": [
@@ -16,5 +19,10 @@
     ],
     "web_accessible_resources": [
         "script.js"
-    ]
+    ],
+    "icons": {
+        "16": "icon-16.png",
+        "48": "icon-48.png",
+        "128": "icon-128.png"
+    }
 }
